@@ -46,15 +46,18 @@ mvn clean install -P standalone
 
  FlowMapRequest request = new FlowMapRequest();
  request.setController(controller);
-
+ 
  // #1 Default Configuration
- FlowMapGenerator builder = new FlowMapGenerator(request);
- ControllerFlowMap controllerFlowMap = builder.generateFlowMap();
-
- //#2 To use a customized http client
-  FlowMapGenerator builder2 = new FlowMapGenerator(request,
+ FlowMapGenerator generator = new FlowMapGenerator(request);
+ ControllerFlowMap controllerFlowMap = generator.generateFlowMap();
+ generator.close();//shutdown the async http client
+ 
+ //#2 can customize http client if needed
+ FlowMapGenerator generator2 = new FlowMapGenerator(request,
                      HttpAsyncClients.createDefault());
-  ControllerFlowMap controllerFlowMap2 = builder.generateFlowMap();
+ ControllerFlowMap controllerFlowMap2 = generator2.generateFlowMap();
+ generator2.close();//shutdown the async http client 
+  
 ````
  
 ##### 1.3 BUILD LIBRARY JAR

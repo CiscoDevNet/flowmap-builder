@@ -15,13 +15,14 @@ import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.concurrent.Future;
 
 /**
  * Created by abey.tom on 2/2/15.
  */
-public class ControllerRestClient {
+public class ControllerRestClient implements AutoCloseable {
     public static final Logger logger = LoggerFactory.getLogger(ControllerRestClient.class);
     protected URLCodec codec = new URLCodec("UTF-8");
     protected final CloseableHttpAsyncClient httpClient;
@@ -72,6 +73,16 @@ public class ControllerRestClient {
             logger.error("Error while encoding the value [cant log might be a password]", e);
         }
         return val;
+    }
+
+    public void close() {
+        if (httpClient != null) {
+            try {
+                httpClient.close();
+            } catch (IOException e) {
+                logger.error("Error while closing the http client", e);
+            }
+        }
     }
 
     public interface PasswordDecrypter {

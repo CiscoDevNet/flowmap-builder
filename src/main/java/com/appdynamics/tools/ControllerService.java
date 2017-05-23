@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by abey.tom on 10/19/16.
  */
-public class ControllerService {
+public class ControllerService implements AutoCloseable {
     public static final Logger logger = LoggerFactory.getLogger(ControllerService.class);
 
     private URLCodec codec = new URLCodec("UTF-8");
@@ -76,5 +76,11 @@ public class ControllerService {
                 .path("nodes")
                 .query("output", "JSON").build();
         return restClient.get(url, Node[].class, controller);
+    }
+
+    public void close() {
+        if (restClient != null) {
+            restClient.close();
+        }
     }
 }

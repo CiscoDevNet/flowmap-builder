@@ -56,8 +56,9 @@ public class FlowMapMain {
         controller.setPassword(password);
         FlowMapRequest request = new FlowMapRequest();
         request.setController(controller);
-        FlowMapGenerator generator = new FlowMapGenerator(request);
-        writeFlowMap(dir, controller, generator,asSet(applications));
+        try (FlowMapGenerator generator = new FlowMapGenerator(request)){
+            writeFlowMap(dir, controller, generator, asSet(applications));
+        }
     }
 
     private static void writeFlowMap(File dir, Controller controller, FlowMapGenerator generator, Set<String> applications) throws IOException {

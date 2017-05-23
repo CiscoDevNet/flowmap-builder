@@ -21,7 +21,7 @@ import java.util.concurrent.Future;
 /**
  * Created by abey.tom on 10/19/16.
  */
-public class FlowMapGenerator {
+public class FlowMapGenerator implements AutoCloseable {
     public static final Logger logger = LoggerFactory.getLogger(FlowMapGenerator.class);
     protected final ControllerService controllerService;
     private ExecutorService executorService;
@@ -187,4 +187,9 @@ public class FlowMapGenerator {
         });
     }
 
+    public void close() {
+        if (controllerService != null) {
+            controllerService.close();
+        }
+    }
 }
