@@ -9,13 +9,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.cli.*;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -81,7 +79,8 @@ public class FlowMapMain {
         System.setProperty("WORK_DIR", dir.getAbsolutePath());
         File file = new File(dir, "log4j.xml");
         if (file.exists()) {
-            PropertyConfigurator.configure(new FileInputStream(file));
+            System.out.println("[INFO] Using the log4j file "+file.getAbsolutePath());
+            DOMConfigurator.configure(file.getAbsolutePath());
         } else {
             URL url = FlowMapMain.class.getResource("/log4j.flowmap-builder.xml");
             if (url != null) {

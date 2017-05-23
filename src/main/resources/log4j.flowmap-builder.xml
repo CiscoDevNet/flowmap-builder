@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file is not named log4j.xml to avoid conflicts when this project is used as a library -->
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
     <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
