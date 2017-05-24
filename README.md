@@ -1,4 +1,4 @@
-## Flowmap Builder
+# Flowmap Builder
 Generates the Application Flow Map in JSON format. This can be used as standalone and as a  library.  
 
 ### 1. USAGE - COMMAND LINE
@@ -16,7 +16,7 @@ Generates the Application Flow Map in JSON format. This can be used as standalon
   -u <arg>      [REQUIRED] AppDynamics Controller User Name
 ``` 
 
-##### 1.1 EXAMPLE
+#### 1.1 EXAMPLE
 ````
  java -jar flowmap-builder-<version>.jar \
             -c http://192.168.1.132:8090 \
@@ -24,11 +24,35 @@ Generates the Application Flow Map in JSON format. This can be used as standalon
             -apps "TestApp,TestApp2"
 
 ````
-##### 1.2 OUTPUT
+#### 1.2 OUTPUT
 
-A file named flowmap.json will be created in the same directory as the jar file. 
+A file named flowmap.json will be created in the same directory as the jar file. The format of the file is
 
-##### 1.3 BUILD STANDALONE JAR
+````
+{
+  controller:{}
+  
+  appFlowMaps:[
+     application: {},
+  
+     tiers:[
+        nodes:[]
+        extCalls:[]
+     ],
+    
+     flowMapNodes:[]
+     
+     flowMapEdges:[
+        srcFlowMapNode:{}
+        destFlowMapNode:{}
+    ]
+  ]
+}
+     
+````
+See the `sample-flowmap.json` for more details.
+
+#### 1.3 BUILD STANDALONE JAR
 
 Run the following command to create a standalone jar. This will create a fat jar will all the dependencies. 
 
@@ -60,8 +84,9 @@ mvn clean install -P standalone
   
 ````
  
-##### 1.3 BUILD LIBRARY JAR
+#### 2.1 BUILD LIBRARY JAR
   
 ````
 mvn clean install
 ````  
+

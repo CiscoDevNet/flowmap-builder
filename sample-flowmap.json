@@ -1,0 +1,872 @@
+{
+  "controller": {
+    "url": "http://demo1.appdynamics.com",
+    "userName": "demouser",
+    "accountName": "customer1"
+  },
+  "appFlowMaps": [
+    {
+      "application": {
+        "id": 66,
+        "name": "ECommerce"
+      },
+      "tiers": [
+        {
+          "id": 184,
+          "name": "ECommerce-Services",
+          "agentType": "APP_AGENT",
+          "numberOfNodes": 2,
+          "type": "Application Server",
+          "nodes": [
+            {
+              "id": 195,
+              "name": "ECommerce_WEB1_NODE",
+              "agentType": "APP_AGENT",
+              "tierId": 184,
+              "tierName": "ECommerce-Services",
+              "machineId": 1108,
+              "machineName": "ecommerce-demo1",
+              "machineOSType": "Linux",
+              "machineAgentPresent": true,
+              "appAgentPresent": true
+            },
+            {
+              "id": 203,
+              "name": "ECommerce_WEB2_NODE",
+              "agentType": "APP_AGENT",
+              "tierId": 184,
+              "tierName": "ECommerce-Services",
+              "machineId": 1108,
+              "machineName": "ecommerce-demo1",
+              "machineOSType": "Linux",
+              "machineAgentPresent": true,
+              "appAgentPresent": true
+            }
+          ],
+          "extCalls": [
+            {
+              "entityId": 185,
+              "entityName": "Inventory-Services",
+              "entityType": "TIER",
+              "exitPointType": "HTTP",
+              "tierName": "Inventory-Services"
+            },
+            {
+              "entityId": 185,
+              "entityName": "Inventory-Services",
+              "entityType": "TIER",
+              "exitPointType": "WEB_SERVICE",
+              "tierName": "Inventory-Services"
+            },
+            {
+              "entityId": 791,
+              "entityName": "Active MQ-fulfillmentQueue",
+              "entityType": "BACKEND",
+              "exitPointType": "JMS",
+              "backend": {
+                "id": 791,
+                "name": "Active MQ-fulfillmentQueue",
+                "applicationComponentNodeId": 0,
+                "exitPointType": "JMS",
+                "properties": [
+                  {
+                    "id": 0,
+                    "name": "DESTINATION_NAME",
+                    "value": "fulfillmentQueue"
+                  },
+                  {
+                    "id": 0,
+                    "name": "DESTINATION_TYPE",
+                    "value": "QUEUE"
+                  },
+                  {
+                    "id": 0,
+                    "name": "VENDOR",
+                    "value": "Active MQ"
+                  }
+                ]
+              },
+              "backendName": "Active MQ-fulfillmentQueue"
+            },
+            {
+              "entityId": 788,
+              "entityName": "Active MQ-CustomerQueue",
+              "entityType": "BACKEND",
+              "exitPointType": "JMS",
+              "backend": {
+                "id": 788,
+                "name": "Active MQ-CustomerQueue",
+                "applicationComponentNodeId": 0,
+                "exitPointType": "JMS",
+                "properties": [
+                  {
+                    "id": 0,
+                    "name": "DESTINATION_NAME",
+                    "value": "CustomerQueue"
+                  },
+                  {
+                    "id": 0,
+                    "name": "DESTINATION_TYPE",
+                    "value": "QUEUE"
+                  },
+                  {
+                    "id": 0,
+                    "name": "VENDOR",
+                    "value": "Active MQ"
+                  }
+                ]
+              },
+              "backendName": "Active MQ-CustomerQueue"
+            },
+            {
+              "entityId": 790,
+              "entityName": "Active MQ-OrderQueue",
+              "entityType": "BACKEND",
+              "exitPointType": "JMS",
+              "backend": {
+                "id": 790,
+                "name": "Active MQ-OrderQueue",
+                "applicationComponentNodeId": 0,
+                "exitPointType": "JMS",
+                "properties": [
+                  {
+                    "id": 0,
+                    "name": "DESTINATION_NAME",
+                    "value": "OrderQueue"
+                  },
+                  {
+                    "id": 0,
+                    "name": "DESTINATION_TYPE",
+                    "value": "QUEUE"
+                  },
+                  {
+                    "id": 0,
+                    "name": "VENDOR",
+                    "value": "Active MQ"
+                  }
+                ]
+              },
+              "backendName": "Active MQ-OrderQueue"
+            },
+            {
+              "entityId": 184,
+              "entityName": "ECommerce-Services",
+              "entityType": "TIER",
+              "exitPointType": "JMS",
+              "tierName": "ECommerce-Services"
+            },
+            {
+              "entityId": 185,
+              "entityName": "Inventory-Services",
+              "entityType": "TIER",
+              "exitPointType": "JMS",
+              "tierName": "Inventory-Services"
+            },
+            {
+              "entityId": 798,
+              "entityName": "APPDY-MySQL DB-DB-5.7.13-0ubuntu0.16.04.2",
+              "entityType": "BACKEND",
+              "exitPointType": "JDBC",
+              "backend": {
+                "id": 798,
+                "name": "APPDY-MySQL DB-DB-5.7.13-0ubuntu0.16.04.2",
+                "applicationComponentNodeId": 0,
+                "exitPointType": "JDBC",
+                "properties": [
+                  {
+                    "id": 0,
+                    "name": "HOST",
+                    "value": "DB"
+                  },
+                  {
+                    "id": 0,
+                    "name": "MAJOR_VERSION",
+                    "value": "5.7.13-0ubuntu0.16.04.2"
+                  },
+                  {
+                    "id": 0,
+                    "name": "PORT",
+                    "value": "3306"
+                  },
+                  {
+                    "id": 0,
+                    "name": "SCHEMA",
+                    "value": "APPDY"
+                  },
+                  {
+                    "id": 0,
+                    "name": "URL",
+                    "value": "jdbc:mysql://db:3306/appdy?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true"
+                  },
+                  {
+                    "id": 0,
+                    "name": "VENDOR",
+                    "value": "MySQL DB"
+                  }
+                ]
+              },
+              "backendName": "APPDY-MySQL DB-DB-5.7.13-0ubuntu0.16.04.2"
+            },
+            {
+              "entityId": 176,
+              "entityName": "XE-Oracle DB-ORACLE-DB",
+              "entityType": "BACKEND",
+              "exitPointType": "JDBC",
+              "backend": {
+                "id": 176,
+                "name": "XE-Oracle DB-ORACLE-DB",
+                "applicationComponentNodeId": 0,
+                "exitPointType": "JDBC",
+                "properties": [
+                  {
+                    "id": 0,
+                    "name": "HOST",
+                    "value": "ORACLE-DB"
+                  },
+                  {
+                    "id": 0,
+                    "name": "MAJOR_VERSION",
+                    "value": "Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production"
+                  },
+                  {
+                    "id": 0,
+                    "name": "PORT",
+                    "value": "1521"
+                  },
+                  {
+                    "id": 0,
+                    "name": "SCHEMA",
+                    "value": "XE"
+                  },
+                  {
+                    "id": 0,
+                    "name": "URL",
+                    "value": "jdbc:oracle:thin://@oracle-db:1521:XE"
+                  },
+                  {
+                    "id": 0,
+                    "name": "VENDOR",
+                    "value": "Oracle DB"
+                  }
+                ]
+              },
+              "backendName": "XE-Oracle DB-ORACLE-DB"
+            },
+            {
+              "entityId": 824,
+              "entityName": "api.shipping.com",
+              "entityType": "BACKEND",
+              "exitPointType": "HTTP",
+              "backend": {
+                "id": 824,
+                "name": "api.shipping.com",
+                "applicationComponentNodeId": 0,
+                "exitPointType": "HTTP",
+                "properties": [
+                  {
+                    "id": 0,
+                    "name": "HOST",
+                    "value": "api.shipping.com"
+                  }
+                ]
+              },
+              "backendName": "api.shipping.com"
+            },
+            {
+              "entityId": 925,
+              "entityName": "XE-Oracle-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production",
+              "entityType": "BACKEND",
+              "exitPointType": "JDBC",
+              "backend": {
+                "id": 925,
+                "name": "XE-Oracle-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production",
+                "applicationComponentNodeId": 0,
+                "exitPointType": "JDBC",
+                "properties": [
+                  {
+                    "id": 0,
+                    "name": "HOST",
+                    "value": "ORACLE-DB"
+                  },
+                  {
+                    "id": 0,
+                    "name": "MAJOR_VERSION",
+                    "value": "Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production"
+                  },
+                  {
+                    "id": 0,
+                    "name": "PORT",
+                    "value": "1521"
+                  },
+                  {
+                    "id": 0,
+                    "name": "SCHEMA",
+                    "value": "XE"
+                  },
+                  {
+                    "id": 0,
+                    "name": "URL",
+                    "value": "jdbc:oracle:thin://@oracle-db:1521:XE"
+                  },
+                  {
+                    "id": 0,
+                    "name": "VENDOR",
+                    "value": "Oracle"
+                  }
+                ]
+              },
+              "backendName": "XE-Oracle-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production"
+            }
+          ]
+        },
+        {
+          "id": 185,
+          "name": "Inventory-Services",
+          "agentType": "APP_AGENT",
+          "numberOfNodes": 1,
+          "type": "Application Server",
+          "nodes": [
+            {
+              "id": 198,
+              "name": "ECommerce_WS_NODE",
+              "agentType": "APP_AGENT",
+              "tierId": 185,
+              "tierName": "Inventory-Services",
+              "machineId": 1108,
+              "machineName": "ecommerce-demo1",
+              "machineOSType": "Linux",
+              "machineAgentPresent": true,
+              "appAgentPresent": true
+            }
+          ],
+          "extCalls": [
+            {
+              "entityId": 800,
+              "entityName": "INVENTORY-MySQL DB-DB-5.7.13-0ubuntu0.16.04.2",
+              "entityType": "BACKEND",
+              "exitPointType": "JDBC",
+              "backend": {
+                "id": 800,
+                "name": "INVENTORY-MySQL DB-DB-5.7.13-0ubuntu0.16.04.2",
+                "applicationComponentNodeId": 0,
+                "exitPointType": "JDBC",
+                "properties": [
+                  {
+                    "id": 0,
+                    "name": "HOST",
+                    "value": "DB"
+                  },
+                  {
+                    "id": 0,
+                    "name": "MAJOR_VERSION",
+                    "value": "5.7.13-0ubuntu0.16.04.2"
+                  },
+                  {
+                    "id": 0,
+                    "name": "PORT",
+                    "value": "3306"
+                  },
+                  {
+                    "id": 0,
+                    "name": "SCHEMA",
+                    "value": "INVENTORY"
+                  },
+                  {
+                    "id": 0,
+                    "name": "URL",
+                    "value": "jdbc:mysql://db:3306/inventory?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true"
+                  },
+                  {
+                    "id": 0,
+                    "name": "VENDOR",
+                    "value": "MySQL DB"
+                  }
+                ]
+              },
+              "backendName": "INVENTORY-MySQL DB-DB-5.7.13-0ubuntu0.16.04.2"
+            },
+            {
+              "entityId": 176,
+              "entityName": "XE-Oracle DB-ORACLE-DB",
+              "entityType": "BACKEND",
+              "exitPointType": "JDBC",
+              "backend": {
+                "id": 176,
+                "name": "XE-Oracle DB-ORACLE-DB",
+                "applicationComponentNodeId": 0,
+                "exitPointType": "JDBC",
+                "properties": [
+                  {
+                    "id": 0,
+                    "name": "HOST",
+                    "value": "ORACLE-DB"
+                  },
+                  {
+                    "id": 0,
+                    "name": "MAJOR_VERSION",
+                    "value": "Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production"
+                  },
+                  {
+                    "id": 0,
+                    "name": "PORT",
+                    "value": "1521"
+                  },
+                  {
+                    "id": 0,
+                    "name": "SCHEMA",
+                    "value": "XE"
+                  },
+                  {
+                    "id": 0,
+                    "name": "URL",
+                    "value": "jdbc:oracle:thin://@oracle-db:1521:XE"
+                  },
+                  {
+                    "id": 0,
+                    "name": "VENDOR",
+                    "value": "Oracle DB"
+                  }
+                ]
+              },
+              "backendName": "XE-Oracle DB-ORACLE-DB"
+            },
+            {
+              "entityId": 925,
+              "entityName": "XE-Oracle-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production",
+              "entityType": "BACKEND",
+              "exitPointType": "JDBC",
+              "backend": {
+                "id": 925,
+                "name": "XE-Oracle-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production",
+                "applicationComponentNodeId": 0,
+                "exitPointType": "JDBC",
+                "properties": [
+                  {
+                    "id": 0,
+                    "name": "HOST",
+                    "value": "ORACLE-DB"
+                  },
+                  {
+                    "id": 0,
+                    "name": "MAJOR_VERSION",
+                    "value": "Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production"
+                  },
+                  {
+                    "id": 0,
+                    "name": "PORT",
+                    "value": "1521"
+                  },
+                  {
+                    "id": 0,
+                    "name": "SCHEMA",
+                    "value": "XE"
+                  },
+                  {
+                    "id": 0,
+                    "name": "URL",
+                    "value": "jdbc:oracle:thin://@oracle-db:1521:XE"
+                  },
+                  {
+                    "id": 0,
+                    "name": "VENDOR",
+                    "value": "Oracle"
+                  }
+                ]
+              },
+              "backendName": "XE-Oracle-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production"
+            }
+          ]
+        },
+        {
+          "id": 191,
+          "name": "Order-Processing-Services",
+          "agentType": "APP_AGENT",
+          "numberOfNodes": 1,
+          "type": "Application Server",
+          "nodes": [
+            {
+              "id": 630,
+              "name": "ECommerce_JMS_NODE",
+              "agentType": "APP_AGENT",
+              "tierId": 191,
+              "tierName": "Order-Processing-Services",
+              "machineId": 1108,
+              "machineName": "ecommerce-demo1",
+              "machineOSType": "Linux",
+              "machineAgentPresent": true,
+              "appAgentPresent": true
+            }
+          ],
+          "extCalls": [
+            {
+              "entityId": 69,
+              "entityName": "ECommerce-Fulfillment",
+              "entityType": "APPLICATION",
+              "exitPointType": "HTTP",
+              "applicationName": "ECommerce-Fulfillment"
+            }
+          ]
+        },
+        {
+          "id": 221,
+          "name": "VM_MachineAgent",
+          "agentType": "APP_AGENT",
+          "numberOfNodes": 0,
+          "type": "Application Server",
+          "extCalls": []
+        },
+        {
+          "id": 192,
+          "name": "Web-Tier-Services",
+          "agentType": "NATIVE_WEB_SERVER",
+          "numberOfNodes": 1,
+          "type": "Web Server",
+          "nodes": [
+            {
+              "id": 205,
+              "name": "ECommerce-Apache",
+              "agentType": "NATIVE_WEB_SERVER",
+              "tierId": 192,
+              "tierName": "Web-Tier-Services",
+              "machineId": 1108,
+              "machineName": "ecommerce-demo1",
+              "machineOSType": "Linux",
+              "machineAgentPresent": true,
+              "appAgentPresent": true
+            }
+          ],
+          "extCalls": [
+            {
+              "entityId": 184,
+              "entityName": "ECommerce-Services",
+              "entityType": "TIER",
+              "exitPointType": "MODULE",
+              "tierName": "ECommerce-Services"
+            }
+          ]
+        }
+      ],
+      "flowMapNodes": [
+        {
+          "entityType": "TIER",
+          "entityId": 184,
+          "entityName": "ECommerce-Services"
+        },
+        {
+          "entityType": "BACKEND",
+          "entityId": 925,
+          "entityName": "XE-Oracle-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production",
+          "exitType": "JDBC"
+        },
+        {
+          "entityType": "BACKEND",
+          "entityId": 824,
+          "entityName": "api.shipping.com",
+          "exitType": "HTTP"
+        },
+        {
+          "entityType": "BACKEND",
+          "entityId": 790,
+          "entityName": "Active MQ-OrderQueue",
+          "exitType": "JMS"
+        },
+        {
+          "entityType": "TIER",
+          "entityId": 191,
+          "entityName": "Order-Processing-Services"
+        },
+        {
+          "entityType": "BACKEND",
+          "entityId": 798,
+          "entityName": "APPDY-MySQL DB-DB-5.7.13-0ubuntu0.16.04.2",
+          "exitType": "JDBC"
+        },
+        {
+          "entityType": "BACKEND",
+          "entityId": 800,
+          "entityName": "INVENTORY-MySQL DB-DB-5.7.13-0ubuntu0.16.04.2",
+          "exitType": "JDBC"
+        },
+        {
+          "entityType": "BACKEND",
+          "entityId": 176,
+          "entityName": "XE-Oracle DB-ORACLE-DB",
+          "exitType": "JDBC"
+        },
+        {
+          "entityType": "TIER",
+          "entityId": 185,
+          "entityName": "Inventory-Services"
+        },
+        {
+          "entityType": "BACKEND",
+          "entityId": 176,
+          "entityName": "XE-Oracle DB-ORACLE-DB",
+          "exitType": "JDBC"
+        },
+        {
+          "entityType": "TIER",
+          "entityId": 192,
+          "entityName": "Web-Tier-Services"
+        },
+        {
+          "entityType": "BACKEND",
+          "entityId": 925,
+          "entityName": "XE-Oracle-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production",
+          "exitType": "JDBC"
+        },
+        {
+          "entityType": "TIER",
+          "entityId": 184,
+          "entityName": "ECommerce-Services"
+        },
+        {
+          "entityType": "TIER",
+          "entityId": 185,
+          "entityName": "Inventory-Services"
+        },
+        {
+          "entityType": "BACKEND",
+          "entityId": 788,
+          "entityName": "Active MQ-CustomerQueue",
+          "exitType": "JMS"
+        },
+        {
+          "entityType": "TIER",
+          "entityId": 185,
+          "entityName": "Inventory-Services"
+        },
+        {
+          "entityType": "TIER",
+          "entityId": 184,
+          "entityName": "ECommerce-Services"
+        },
+        {
+          "entityType": "TIER",
+          "entityId": 185,
+          "entityName": "Inventory-Services"
+        },
+        {
+          "entityType": "APPLICATION",
+          "entityId": 69,
+          "entityName": "ECommerce-Fulfillment"
+        },
+        {
+          "entityType": "BACKEND",
+          "entityId": 791,
+          "entityName": "Active MQ-fulfillmentQueue",
+          "exitType": "JMS"
+        },
+        {
+          "entityType": "TIER",
+          "entityId": 221,
+          "entityName": "VM_MachineAgent"
+        }
+      ],
+      "flowMapEdges": [
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 185,
+            "entityName": "Inventory-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "BACKEND",
+            "entityId": 925,
+            "entityName": "XE-Oracle-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production",
+            "exitType": "JDBC"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 185,
+            "entityName": "Inventory-Services"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "BACKEND",
+            "entityId": 824,
+            "entityName": "api.shipping.com",
+            "exitType": "HTTP"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 185,
+            "entityName": "Inventory-Services"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 191,
+            "entityName": "Order-Processing-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "APPLICATION",
+            "entityId": 69,
+            "entityName": "ECommerce-Fulfillment"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "BACKEND",
+            "entityId": 798,
+            "entityName": "APPDY-MySQL DB-DB-5.7.13-0ubuntu0.16.04.2",
+            "exitType": "JDBC"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "BACKEND",
+            "entityId": 790,
+            "entityName": "Active MQ-OrderQueue",
+            "exitType": "JMS"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 185,
+            "entityName": "Inventory-Services"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "BACKEND",
+            "entityId": 925,
+            "entityName": "XE-Oracle-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production",
+            "exitType": "JDBC"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 185,
+            "entityName": "Inventory-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "BACKEND",
+            "entityId": 176,
+            "entityName": "XE-Oracle DB-ORACLE-DB",
+            "exitType": "JDBC"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "BACKEND",
+            "entityId": 176,
+            "entityName": "XE-Oracle DB-ORACLE-DB",
+            "exitType": "JDBC"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 185,
+            "entityName": "Inventory-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "BACKEND",
+            "entityId": 800,
+            "entityName": "INVENTORY-MySQL DB-DB-5.7.13-0ubuntu0.16.04.2",
+            "exitType": "JDBC"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "BACKEND",
+            "entityId": 791,
+            "entityName": "Active MQ-fulfillmentQueue",
+            "exitType": "JMS"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 192,
+            "entityName": "Web-Tier-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          }
+        },
+        {
+          "srcFlowMapNode": {
+            "entityType": "TIER",
+            "entityId": 184,
+            "entityName": "ECommerce-Services"
+          },
+          "destFlowMapNode": {
+            "entityType": "BACKEND",
+            "entityId": 788,
+            "entityName": "Active MQ-CustomerQueue",
+            "exitType": "JMS"
+          }
+        }
+      ]
+    }
+  ]
+}
